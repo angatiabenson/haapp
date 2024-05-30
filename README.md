@@ -1,3 +1,9 @@
+<div>
+   <center>
+   <img src="app/src/main/res/drawable/app_logo.png" width="200" height="200">
+   </center>
+</div>
+
 # Haapp
 
 ## Overview

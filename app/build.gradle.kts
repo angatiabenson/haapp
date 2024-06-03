@@ -113,4 +113,7 @@ dependencies {
     //Logging
     implementation(libs.timber)
     implementation(libs.process.phoenix)
+
+    //Navigation
+    implementation(libs.androidx.navigation.compose)
 }

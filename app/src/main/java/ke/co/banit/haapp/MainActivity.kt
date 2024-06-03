@@ -33,7 +33,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import ke.co.banit.haapp.ui.Screen
+import ke.co.banit.haapp.ui.BottomNavScreen
 import ke.co.banit.haapp.ui.about.AboutScreen
 import ke.co.banit.haapp.ui.channels.ChannelScreen
 import ke.co.banit.haapp.ui.home.HomeScreen
@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
             HaappTheme {
                 Scaffold(modifier = Modifier.fillMaxSize(),
                     topBar = {
-                        MyTopAppBar(navController)
+                        MyTopAppBar()
                     },
                     bottomBar = { BottomNavigationBar(navController) }
                 ) { innerPadding ->
@@ -67,7 +67,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun MyTopAppBar(navController: NavHostController) {
+private fun MyTopAppBar() {
     TopAppBar(
         title = {
             Text(
@@ -94,9 +94,9 @@ private fun MyTopAppBar(navController: NavHostController) {
 @Composable
 fun BottomNavigationBar(navController: NavHostController) {
     val items = listOf(
-        Screen.News,
-        Screen.Channels,
-        Screen.About
+        BottomNavScreen.News,
+        BottomNavScreen.Channels,
+        BottomNavScreen.About
     )
     var selectedItem by rememberSaveable {
         mutableIntStateOf(0)
@@ -129,9 +129,9 @@ fun BottomNavigationBar(navController: NavHostController) {
 
 @Composable
 fun NavigationHost(navController: NavHostController) {
-    NavHost(navController, startDestination = Screen.News.route) {
-        composable(Screen.News.route) { HomeScreen() }
-        composable(Screen.Channels.route) { ChannelScreen() }
-        composable(Screen.About.route) { AboutScreen() }
+    NavHost(navController, startDestination = BottomNavScreen.News.route) {
+        composable(BottomNavScreen.News.route) { HomeScreen() }
+        composable(BottomNavScreen.Channels.route) { ChannelScreen() }
+        composable(BottomNavScreen.About.route) { AboutScreen() }
     }
 }

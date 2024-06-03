@@ -14,27 +14,27 @@ import androidx.compose.ui.graphics.vector.ImageVector
  * @Date: 6/3/2024
  * Copyright (c) 2024 BanIT
  */
-sealed class Screen(
+sealed class BottomNavScreen(
     val route: String,
     val label: String,
     val selectedIcon: ImageVector,
     val unSelectedIcon: ImageVector,
 ) {
-    data object News : Screen(
+    data object News : BottomNavScreen(
         route = "news",
         label = "News",
         selectedIcon = Icons.Filled.Home,
         unSelectedIcon = Icons.Outlined.Home
     )
 
-    data object Channels : Screen(
+    data object Channels : BottomNavScreen(
         route = "channels",
         label = "Channels",
         selectedIcon = Icons.Filled.CheckCircle,
         unSelectedIcon = Icons.Outlined.CheckCircle
     )
 
-    data object About : Screen(
+    data object About : BottomNavScreen(
         route = "about",
         label = "About",
         selectedIcon = Icons.Filled.Info,
